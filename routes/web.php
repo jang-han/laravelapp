@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function () {
-    return '<html><body><h1>Hello</h1><p>This is a sample page.</p></body></html>';
-});
+//Route::get('hello', 'App\Http\Controllers\HelloController');
+Route::get('hello', 'App\Http\Controllers\HelloController@index');
+Route::post('hello', 'App\Http\Controllers\HelloController@post');
+//Route::get('hello/other', 'App\Http\Controllers\HelloController@other');
+//Route::get('test', 'App\Http\Controllers\TestController@index');
+
