@@ -24,26 +24,13 @@ class HelloController extends Controller
 {
     public function index()
     {
-        //$data = ['msg'=>'これはコントローラから渡されたメッセージです。'];
-        $data = [
-            'msg'=>'お名前を入力してください。',
-        ];
-        return view('hello.index', $data);
-        /*
-        global $head, $style, $body, $end;
-        $html = $head . tag('title','Hello/Index') . $style . $body . tag('h1', 'Index') . tag('p', 'this is Index page')
-                . '<a href="/hello/other">go to Other page</a>'. $end;
-        return $html;
-        */
+        $data = ['one','two','three','four','five'];
+        return view('hello.index', ['data'=>$data]);
     }
 
     public function post(Request $request)
     {
-        $msg = $request->msg;
-        $data = [
-            'msg'=>'こんじちは、' . $msg . 'さん!',
-        ];
-        return view('hello.index', $data);
+        return view('hello.index', ['msg'=>$request->msg]);
     }
 
     public function other()
