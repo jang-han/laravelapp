@@ -22,10 +22,9 @@ function tag($tag, $txt){
 
 class HelloController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = ['one','two','three','four','five'];
-        return view('hello.index', ['data'=>$data]);
+        return view('hello.index', ['data'=>$request->data]);
     }
 
     public function post(Request $request)

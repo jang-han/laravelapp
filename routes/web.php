@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
+use App\Http\Middleware\HelloMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,16 @@ Route::get('/', function () {
 });
 
 //Route::get('hello', 'App\Http\Controllers\HelloController');
-Route::get('hello', 'App\Http\Controllers\HelloController@index');
+Route::get('hello', 'App\Http\Controllers\HelloController@index')->middleware(HelloMiddleware::class);
 Route::post('hello', 'App\Http\Controllers\HelloController@post');
 //Route::get('hello/other', 'App\Http\Controllers\HelloController@other');
 //Route::get('test', 'App\Http\Controllers\TestController@index');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
