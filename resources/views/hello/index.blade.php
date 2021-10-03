@@ -8,12 +8,25 @@
 @endsection
 
 @section('content')
-    <p>ここが本文のコンテンツです。</p>
-    <table>
-        @foreach($data as $item)
-        <tr><th>{{$item['name']}}</th><td>{{$item['mail']}}</td></tr>
-        @endforeach
-    </table>
+    <p>{{$msg}}</p>
+    @if (count($errors) > 0)
+    <div>
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <form action = "/hello" method = "post">
+        <table>
+            @csrf
+            <tr><th>name : </th><td><input type="text" name="name" value="{{old('name')}}"></td></tr>
+            <tr><th>mail : </th><td><input type="text" name="mail"></td></tr>
+            <tr><th>age : </th><td><input type="text" name="age"></td></tr>
+            <tr><th></th><td><input type="submit" value="send"></td></tr>
+        </table>
+    </form>
 @endsection
 
 @section('footer')
