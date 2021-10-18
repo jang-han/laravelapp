@@ -27,6 +27,7 @@ Route::get('hello/del', 'App\Http\Controllers\HelloController@del');
 Route::post('hello/del', 'App\Http\Controllers\HelloController@remove');
 Route::get('hello', 'App\Http\Controllers\HelloController@index');
 Route::post('hello', 'App\Http\Controllers\HelloController@post');
+Route::get('hello/show', 'App\Http\Controllers\HelloController@show');
 //Route::get('hello/other', 'App\Http\Controllers\HelloController@other');
 //Route::get('test', 'App\Http\Controllers\TestController@index');
 
